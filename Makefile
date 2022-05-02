@@ -1,7 +1,13 @@
 
 start-gitlab-minikube:
 	minikube start --driver=podman --container-runtime=cri-o
-	echo "done"
+	minikube addons enable ingress
+
+stop-gitlab-minikube:
+	minikube stop
+
+delete-minikube:
+	minikube delete
 
 start-gitlab-docker:
 	export GITLAB_HOME=${PWD}/data && docker-compose up
